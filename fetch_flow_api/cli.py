@@ -2,7 +2,7 @@
 import argparse
 import sys
 
-from fetch_flow_api import process_data
+from fetch_flow_api.fetch_flow_api import process_data
 
 
 def main():
@@ -10,14 +10,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('getLink', type=str, help='URL для получения данных')
     parser.add_argument('outputfile', type=str, help='Имя файла для сохранения данных')
-    parser.add_argument('proxylist', type=str, help='Имя файла с прокси')
     parser.add_argument('limit', type=int, help='Лимит запросов')
+    parser.add_argument('proxylist', type=str, nargs='?', default='', help='Имя файла с прокси (необязательный)')
+    
 
     args = parser.parse_args()
     getLink, outputfile, proxylist, limit = args.getLink, args.outputfile, args.proxylist, args.limit
   
-    data = process_data(getLink, outputfile, proxylist, limit)
-    print(data)
+    process_data(getLink, outputfile, proxylist, limit)
     return 0
 
 
