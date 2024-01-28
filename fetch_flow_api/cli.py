@@ -9,8 +9,8 @@ def main():
     """Console script for fetch_flow_api."""
     parser = argparse.ArgumentParser()
     parser.add_argument('getLink', type=str, help='URL для получения данных')
-    parser.add_argument('outputfile', type=str, help='Имя файла для сохранения данных')
-    parser.add_argument('limit', type=int, help='Лимит запросов')
+    parser.add_argument('outputfile', type=str, nargs='?', default='customs_data.csv', help='Имя файла для сохранения данных')
+    parser.add_argument('limit', type=int, nargs='?', default=10, help='Лимит запросов (необезательный (10))')
     parser.add_argument('proxylist', type=str, nargs='?', default='', help='Имя файла с прокси (необязательный)')
     
 

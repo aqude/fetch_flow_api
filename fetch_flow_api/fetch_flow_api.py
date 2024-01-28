@@ -5,12 +5,6 @@ import csv
 import json
 import requests
 def process_data(getLink: str, outputfile: str, proxylist: str, limit: int):
-    
-    if not outputfile:
-        outputfile = "customs_data.csv"
-    if not limit:
-        limit = 10
-
     headers: list = getHeaders(getLink)
     createHeadersCsv(headers, outputfile)
     
